@@ -1,10 +1,22 @@
 import express from "express";
+import swaggerUi from "swagger-ui-express";
 
 import { usersRoutes } from "./routes/users.routes";
+import swaggerFile from "./swagger.json";
 
 const app = express();
 
 app.use(express.json());
+
+const options = {
+  customCss: ".swagger-ui .topbar { display: none }",
+  customSiteTitle: "Challenge API",
+  // customfavIcon: "/assets/favicon.ico",
+};
+
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerFile, options));
+
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerFile));
 
 app.use("/users", usersRoutes);
 

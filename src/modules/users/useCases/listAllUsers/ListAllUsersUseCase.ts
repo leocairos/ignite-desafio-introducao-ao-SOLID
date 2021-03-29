@@ -18,7 +18,7 @@ class ListAllUsersUseCase {
         return users;
       }
     }
-    throw new Error("User not found");
+    throw new Error("Adim User not found");
   }
 }
 

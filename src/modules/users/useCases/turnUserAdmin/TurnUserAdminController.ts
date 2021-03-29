@@ -12,7 +12,7 @@ class TurnUserAdminController {
       const user = this.turnUserAdminUseCase.execute({ user_id });
       return response.json(user);
     } catch (err) {
-      return response.status(404).send({ error: err });
+      return response.status(404).send({ error: err.message });
     }
   }
 }
